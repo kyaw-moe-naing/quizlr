@@ -12,6 +12,7 @@ import { Timer } from '../../components/Timer';
 import { FlashCardComponent } from '../../components/FlashCard';
 import GestureRecognizer from 'react-native-swipe-gestures';
 import { MCQComponent } from '../../components/MCQ';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const Home = () => {
   const tabs: string[] = ['Following', 'For You'];
@@ -83,8 +84,10 @@ const Home = () => {
   }
 
   function AppBar() {
+    const insets = useSafeAreaInsets();
+
     return (
-      <View style={styles.appBar}>
+      <View style={[styles.appBar, { paddingTop: 15 + insets.top }]}>
         <Timer />
         <View style={styles.centerButtons}>
           {tabs.map((tab) =>

@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, StyleSheet, Dimensions, ScrollView, Image, ActivityIndicator } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ActivityIndicator } from 'react-native';
 import { Colors } from '../utils/colors';
 import { useEffect, useState } from 'react';
 import { Avatar } from './Avatar';
@@ -7,7 +7,6 @@ import { BookmarkIcon, CommentIcon, CorrectIcon, FlipIcon, LikeIcon, PlaylistIco
 import { MCQ } from '../data/home/mcq';
 import { MCQAnswer } from '../data/home/answer';
 import { EndPoints } from '../utils/endpoints';
-const { width, height } = Dimensions.get('window');
 
 interface MCQProps {
   loading: boolean;
@@ -38,9 +37,7 @@ export function MCQComponent(props: MCQProps) {
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <ActivityIndicator color={Colors.white} />
       </View> :
-      <View
-        style={styles.container}
-      >
+      <View style={styles.container}>
         <View style={styles.main}>
           <View style={styles.content}>
             <View style={styles.qna}>
@@ -101,8 +98,7 @@ export function MCQComponent(props: MCQProps) {
 
 const styles = StyleSheet.create({
   container: {
-    width: width,
-    height: height - 136,
+    flex: 1
   },
   main: {
     flex: 1,

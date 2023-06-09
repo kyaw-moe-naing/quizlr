@@ -2,6 +2,7 @@ import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Colors } from '../utils/colors';
 import tabs from '../navigation/routes';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export function TabButton({ state, descriptors, navigation }: BottomTabBarProps) {
   return (
@@ -48,6 +49,7 @@ export function TabButton({ state, descriptors, navigation }: BottomTabBarProps)
           </TouchableOpacity>
         );
       })}
+      <SafeAreaView />
     </View>
   );
 }

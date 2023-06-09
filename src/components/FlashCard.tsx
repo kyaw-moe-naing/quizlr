@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Avatar } from './Avatar';
 import { Action } from './Action';
 import { BookmarkIcon, CommentIcon, FlipIcon, LikeIcon, PlaylistIcon, RightIcon, ShareIcon } from '../../assets/icons/card_icons';
-const { width, height } = Dimensions.get('window');
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 interface FlashCardProps {
   loading: boolean;
@@ -13,6 +13,9 @@ interface FlashCardProps {
 }
 
 export function FlashCardComponent(props: FlashCardProps) {
+  const { width, height } = Dimensions.get('window');
+  const insets = useSafeAreaInsets();
+
   const [tap, setTap] = useState(false);
 
   const colors: string[] = [Colors.orange, Colors.mellow, Colors.mustard, Colors.darkTeal, Colors.emarald];
@@ -32,11 +35,11 @@ export function FlashCardComponent(props: FlashCardProps) {
           <View style={styles.content}>
             <View style={styles.qna}>
               {tap ?
-                <View style={{ flex: 1 }}>
+                <View style={styles.container}>
                   <Text style={styles.frontText}>{props.data.flashcard_front}</Text>
                   <View style={styles.divider} />
                   <Text style={styles.answerTitle}>Answer</Text>
-                  <ScrollView style={{ flex: 1 }}>
+                  <ScrollView style={styles.container}>
                     <Text style={[styles.frontText, { opacity: 0.7 }]}>{props.data.flashcard_back}</Text>
                   </ScrollView>
                   <View>
@@ -101,8 +104,7 @@ export function FlashCardComponent(props: FlashCardProps) {
 
 const styles = StyleSheet.create({
   container: {
-    width: width,
-    height: height - 136,
+    flex: 1
   },
   main: {
     flex: 1,

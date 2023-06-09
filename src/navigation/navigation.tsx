@@ -13,7 +13,7 @@ const Tab = createBottomTabNavigator();
 const Navigation = () => {
   return (
     <NavigationContainer theme={DarkTheme}>
-      <StatusBar backgroundColor={Colors.black} barStyle="default" />
+      <StatusBar backgroundColor={Colors.black} barStyle="light-content" />
       <Tab.Navigator
         tabBar={props => <TabButton {...props} />}
         screenOptions={{ headerShown: false }}
