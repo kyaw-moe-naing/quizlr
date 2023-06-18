@@ -9,5 +9,9 @@ Assessment to make a TikTok Clone App For Education
 
 ## Screenshots
 
-![img](/assets/screenshots/Following.PNG)
-![img](/assets/screenshots/ForYou.PNG)
+<table>
+  <tr>
+    <td><img src="assets/screenshots/Following.PNG" ></td>
+    <td><img src="assets/screenshots/ForYou.PNG" ></td>
+  </tr>
+ </table>
